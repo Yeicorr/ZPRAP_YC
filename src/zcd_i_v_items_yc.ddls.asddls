@@ -7,11 +7,13 @@
     sizeCategory: #S,
     dataClass: #MIXED
 }
+
 define view entity ZCD_I_V_ITEMS_YC
   as select from zitems_yc as ZITEMS_YC
   association to parent ZCD_I_R_ORDEN_YC as _Orden on $projection.Id = _Orden.Id
 {
   key id               as Id,
+      id_item          as Id_item,
       name             as Name,
       description      as Description,
       releasedate      as Releasedate,

@@ -1,0 +1,61 @@
+@Metadata.layer: #CORE
+@UI: {
+headerInfo : { typeName: 'Orden', typeNamePlural: 'Ordenes', title: { type: #STANDARD, value: 'Id' } }
+}
+annotate view ZCD_C_R_ORDEN_YC_A with
+{
+  @UI.facet: [{ id: 'Orden', purpose: #STANDARD,
+                type: #IDENTIFICATION_REFERENCE,
+                label: 'Orden',
+                position: 10 },
+              { id: 'Items', purpose: #STANDARD,
+                type: #LINEITEM_REFERENCE,
+                label: 'Ítems Orden',
+                position: 20,
+                targetElement: '_Items' }
+             ]
+  @UI:{ lineItem: [{ position: 10,
+                      importance: #HIGH }],
+         identification: [{ position: 10,
+         label: 'Id Orden' }]          }
+  @Search.defaultSearchElement: true
+  Id;
+  @UI: {
+  lineItem: [ { position: 20, importance: #HIGH } ],
+  identification:[ { position: 20 } ] }
+  Email;
+  @UI: {
+  lineItem: [ { position: 30, importance: #MEDIUM } ],
+  identification:[ { position: 30 } ] }
+  Firstname;
+  @UI: {
+  lineItem: [ { position: 40, importance: #MEDIUM } ],
+  identification:[ { position: 40 } ] }
+  Lastname;
+  @UI: {
+  lineItem: [ { position: 50, importance: #MEDIUM } ],
+  identification:[ { position: 50 } ] }
+  Country;
+  @UI: {
+  lineItem: [ { position: 60, importance: #MEDIUM } ],
+  identification:[ { position: 60 } ] }
+  Createon;
+  @UI: {
+  lineItem: [ { position: 70, importance: #HIGH } ],
+  identification:[ { position: 70 } ] }
+  Deliverydate;
+  @UI: {
+  lineItem: [ { position: 15, importance: #HIGH },
+  { type: #FOR_ACTION, dataAction: 'acceptOrder', label: 'Accept Order' },
+  { type: #FOR_ACTION, dataAction: 'refuseOrder', label: 'Refused Order' } ],
+  identification: [ { position: 15 },
+  { type: #FOR_ACTION, dataAction: 'acceptOrder', label: 'Accept Order' },
+  { type: #FOR_ACTION, dataAction: 'refuseOrder', label: 'Refused Order' } ] ,
+  selectionField: [ { position: 80 } ] }
+  @EndUserText.label: 'Overall Status'
+  Orderstatus;
+  @UI.hidden: true
+  Imageurl;
+  /* Associations */
+  // _Items;
+}

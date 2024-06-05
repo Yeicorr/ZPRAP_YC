@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service definition Approval Order'
+define service ZSD_ORDEN_YC_A {
+  expose ZCD_C_R_ORDEN_YC_A;
+  expose ZCD_C_V_ITEMS_YC_A;
+}

@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service definition Orden'
+define service ZSD_ORDEN_YC {
+  expose ZCD_C_R_ORDEN_YC;
+  expose ZCD_C_V_ITEMS_YC;
+}

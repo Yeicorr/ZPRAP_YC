@@ -11,11 +11,11 @@ annotate view ZCD_C_V_ITEMS_YC_A with
              ]
   @Search.defaultSearchElement: true
   Id;
-  @UI: { lineItem: [ { position: 20, importance: #HIGH } ],
+  @UI: { lineItem: [ { position: 20, importance: #MEDIUM } ],
   identification: [ { position: 20 } ] }
   @Search.defaultSearchElement: true
   Id_item;
-  @UI: { lineItem: [ { position: 30, importance: #HIGH } ],
+  @UI: { lineItem: [ { position: 30, importance: #MEDIUM } ],
   identification: [ { position: 30 } ] }
   Name;
   @UI: { lineItem: [ { position: 40, importance: #HIGH } ],

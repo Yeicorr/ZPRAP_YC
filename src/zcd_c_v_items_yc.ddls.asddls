@@ -5,7 +5,7 @@ define view entity ZCD_C_V_ITEMS_YC
 as projection on ZCD_I_V_ITEMS_YC
 {
     key Id,
-    Id_item,
+    key Id_item,
     Name,
     Description,
     Releasedate,

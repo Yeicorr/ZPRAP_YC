@@ -1,0 +1,24 @@
+projection;
+//strict ( 2 ); //Uncomment this line in order to enable strict mode 2. The strict mode has two variants (strict(1), strict(2)) and is prerequisite to be future proof regarding syntax and to be able to release your BO.
+
+define behavior for ZCD_C_R_ORDEN_YC alias OrderProj
+use etag
+{
+  use create;
+  use update;
+  use delete;
+
+  use action acceptOrder;
+  use action refuseOrder;
+  use action createOrder;
+
+  use association _Items { create; }
+}
+
+define behavior for ZCD_C_V_ITEMS_YC alias ItemsProj
+{
+  use update;
+  use delete;
+
+  use association _Orden;
+}

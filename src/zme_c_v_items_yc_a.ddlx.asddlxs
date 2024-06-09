@@ -12,37 +12,37 @@ annotate view ZCD_C_V_ITEMS_YC_A with
   @Search.defaultSearchElement: true
   Id;
   @UI: { lineItem: [ { position: 20, importance: #MEDIUM } ],
-  identification: [ { position: 20 } ] }
+  identification: [ { position: 20, label: 'Id Item' } ] }
   @Search.defaultSearchElement: true
   Id_item;
   @UI: { lineItem: [ { position: 30, importance: #MEDIUM } ],
-  identification: [ { position: 30 } ] }
+  identification: [ { position: 30, label: 'Name' } ] }
   Name;
   @UI: { lineItem: [ { position: 40, importance: #HIGH } ],
-  identification: [ { position: 40 } ] }
+  identification: [ { position: 40, label: 'Description' } ] }
   Description;
   @UI: { lineItem: [ { position: 50, importance: #HIGH } ],
-  identification: [ { position: 50 } ] }
+  identification: [ { position: 50, label: 'Release Date' } ] }
   Releasedate;
   @UI: { lineItem: [ { position: 60, importance: #HIGH } ],
-  identification: [ { position: 60 } ] }
+  identification: [ { position: 60, label: 'Discontinued Date' } ] }
   Discontinueddate;
   @UI: { lineItem: [ { position: 70, importance: #HIGH } ],
-  identification: [ { position: 70 } ] }
+  identification: [ { position: 70, label: 'Price' } ] }
   Price;
   @UI: { lineItem: [ { position: 80, importance: #HIGH } ],
-  identification: [ { position: 80 } ] }
+  identification: [ { position: 80, label: 'Height' } ] }
   Height;
   @UI: { lineItem: [ { position: 90, importance: #HIGH } ],
-  identification: [ { position: 90 } ] }
+  identification: [ { position: 90, label: 'Width' } ] }
   Width;
   @UI: { lineItem: [ { position: 100, importance: #HIGH } ],
-  identification: [ { position: 100 } ] }
+  identification: [ { position: 100, label: 'Depth' } ] }
   Depth;
   @UI: { lineItem: [ { position: 110, importance: #HIGH } ],
-  identification: [ { position: 110 } ] }
+  identification: [ { position: 110, label: 'Quantity' } ] }
   Quantity;
   @UI: { lineItem: [ { position: 120, importance: #HIGH } ],
-  identification: [ { position: 120 } ] }
+  identification: [ { position: 120, label: 'Unit of Measure' } ] }
   Unitofmeasure;
 }

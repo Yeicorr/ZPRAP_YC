@@ -11,10 +11,10 @@
     <SCRLEN2>20</SCRLEN2>
     <SCRLEN3>40</SCRLEN3>
     <DDTEXT>Fecha de entrega</DDTEXT>
-    <REPTEXT>Fecha Entrega</REPTEXT>
-    <SCRTEXT_S>Fecha Entr</SCRTEXT_S>
-    <SCRTEXT_M>Fecha Entrega</SCRTEXT_M>
-    <SCRTEXT_L>Fecha Entrega</SCRTEXT_L>
+    <REPTEXT>Delivery Date</REPTEXT>
+    <SCRTEXT_S>Deliv.Date</SCRTEXT_S>
+    <SCRTEXT_M>Delivery Date</SCRTEXT_M>
+    <SCRTEXT_L>Delivery Date</SCRTEXT_L>
     <DTELMASTER>E</DTELMASTER>
     <REFKIND>D</REFKIND>
     <ABAP_LANGUAGE_VERSION>5</ABAP_LANGUAGE_VERSION>

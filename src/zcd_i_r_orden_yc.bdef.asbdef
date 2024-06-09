@@ -11,8 +11,10 @@ etag master deliverydate
   create;
   update;
   delete;
-  field ( readonly ) createon;
-  field ( mandatory ) Id, Email;
+ // field ( readonly : update ) Id;
+  field ( readonly )  createon;
+  field ( mandatory : create ) Id, Email;
+  field ( features : instance ) Id;
 
   mapping for zorden_yc corresponding;
 
@@ -36,7 +38,8 @@ etag master releasedate
   update;
   delete;
   field ( readonly ) Id;
-  field ( mandatory ) Id_item;
+  field ( readonly : update ) Id_item;
+  field ( mandatory : create ) Id_item;
 
   mapping for zitems_yc corresponding;
 

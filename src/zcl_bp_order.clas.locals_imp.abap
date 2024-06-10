@@ -78,11 +78,11 @@ CLASS lhc_Order IMPLEMENTATION.
   RESULT DATA(lt_read_result)
   FAILED failed
   REPORTED reported.
-
+    SELECT MAX( id ) FROM zorden_yc INTO @DATA(lv_id).
     DATA(lv_today) = cl_abap_context_info=>get_system_date( ).
     DATA lt_create TYPE TABLE FOR CREATE zcd_i_r_orden_yc\\Order.
     lt_create = VALUE #( FOR row IN lt_read_result INDEX INTO idx
-    ( id = row-id
+    ( id = lv_id + 1
       email = row-email
       firstname = row-firstname
       lastname = row-Lastname
@@ -136,6 +136,24 @@ CLASS lhc_Order IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD validateStatus.
+    READ ENTITY zcd_i_r_orden_yc\\Order FIELDS ( Orderstatus ) WITH
+    VALUE #( FOR <root_key> IN keys ( %key = <root_key> ) )
+    RESULT DATA(lt_Order_result).
+    LOOP AT lt_Order_result INTO DATA(ls_Order_result).
+      CASE ls_Order_result-Orderstatus.
+        WHEN 1. " Open
+        WHEN 2. " Accepted
+        WHEN 3. " Refused
+        WHEN OTHERS.
+          APPEND VALUE #( %key = ls_Order_result-%key ) TO failed-order.
+          APPEND VALUE #( %key = ls_Order_result-%key
+          %msg = new_message( id = 'Z_MESSAGE_ORDER_YC'
+          number = '001'
+          v1 = ls_order_result-Orderstatus
+          severity = if_abap_behv_message=>severity-error )
+          %element-Orderstatus = if_abap_behv=>mk-on ) TO reported-order.
+      ENDCASE.
+    ENDLOOP.
   ENDMETHOD.
 
 ENDCLASS.

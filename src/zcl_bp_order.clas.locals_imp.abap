@@ -66,6 +66,49 @@ CLASS lhc_Order IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD createOrder.
+    READ ENTITY zcd_i_r_orden_yc
+  FIELDS ( Id
+           email
+           firstname
+           lastname
+           country
+           deliverydate
+          )
+  WITH VALUE #( FOR Order IN keys ( %key = order-%key ) )
+  RESULT DATA(lt_read_result)
+  FAILED failed
+  REPORTED reported.
+
+    DATA(lv_today) = cl_abap_context_info=>get_system_date( ).
+    DATA lt_create TYPE TABLE FOR CREATE zcd_i_r_orden_yc\\Order.
+    lt_create = VALUE #( FOR row IN lt_read_result INDEX INTO idx
+    ( id = row-id
+      email = row-email
+      firstname = row-firstname
+      lastname = row-Lastname
+      country = row-Country
+      deliverydate = row-deliverydate
+      Createon = lv_today
+      Orderstatus = 1 ) ).
+
+    MODIFY ENTITIES OF zcd_i_r_orden_yc
+    IN LOCAL MODE ENTITY Order
+    CREATE FIELDS ( id
+          email
+          firstname
+          lastname
+          country
+          deliverydate
+          Createon
+          Orderstatus )
+    WITH lt_create
+    MAPPED mapped
+    FAILED failed
+    REPORTED reported.
+    result = VALUE #( FOR create IN lt_create INDEX INTO idx
+    ( %cid_ref = keys[ idx ]-%cid_ref
+      %key = keys[ idx ]-Id
+      %param = CORRESPONDING #( create ) ) ).
   ENDMETHOD.
 
   METHOD refuseOrder.
@@ -78,7 +121,7 @@ CLASS lhc_Order IMPLEMENTATION.
    REPORTED reported.
     READ ENTITIES OF zcd_i_r_orden_yc IN LOCAL MODE
     ENTITY Order
-    FIELDS ( Country
+    FIELDS (  Country
               Createon
               Deliverydate
               Email

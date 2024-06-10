@@ -4,6 +4,7 @@ managed; //implementation in class zbp_cd_i_r_orden_yc unique;
 define behavior for ZCD_I_R_ORDEN_YC alias Order
 implementation in class zcl_bp_Order unique
 persistent table zorden_yc
+with additional save
 lock master
 authorization master ( instance )
 etag master deliverydate
